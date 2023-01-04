@@ -1,6 +1,23 @@
 .header{
-  background-color: blue;
-  .user-button{
-    background-color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  ul{
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+  }
+  .navbar{
+    &__list{
+
+    }
+  }
+  &__logo{
+    width: 100px;
+  }
+  .user-button,.site-navigation{
+
+    display: flex;
+    column-gap: 20px;
   }
 }
