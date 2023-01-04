@@ -2,8 +2,12 @@ import React from 'react';
 import Logo from '../../assets/img/logo.svg';
 import "./navbar.scss";
 import {Link} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {logoutUser} from "../../reducers/userReducer";
 
 const Navbar = () => {
+    const isAuth = useSelector(state => state.user.isAuth)
+    const dispatch = useDispatch();
     return (
         <header className="header">
             <img src={Logo} alt="logo" className="header__logo"/>
@@ -17,8 +21,10 @@ const Navbar = () => {
                 </ul>
             </nav>
             <ul className="header__button user-button">
-                <li className="user-button__login"><Link to="/login">Sign in</Link></li>
-                <li className="user-button__registration"><Link to="/registration">Registration</Link></li>
+
+                {!isAuth && <li className="user-button__login"><Link to="/login">Sign in</Link></li>}
+                {!isAuth && <li className="user-button__registration"><Link to="/registration">Registration</Link></li>}
+                {isAuth && <li className="user-button__out" onClick={() => dispatch(logoutUser())}>Log Out</li>}
             </ul>
         </header>
     );

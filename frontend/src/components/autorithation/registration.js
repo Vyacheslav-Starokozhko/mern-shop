@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import './registration.scss';
+import './autorithation.scss';
 import Input from "../utils/input";
 import {registration} from "../../actions/user";
 
@@ -13,7 +13,7 @@ const Registration = () => {
             <h1>Registration</h1>
             <Input type="text" placeholder="Email" setValue={setEmail} value={email}/>
             <Input type="password" placeholder="Password" setValue={setPassword} value={password}/>
-            <button className="registration__btn" onClick={() => registration(email, password)}>Войти</button>
+            <button className="registration__btn" onClick={() => registration(email, password)}>Sign In</button>
         </div>
     );
 };
